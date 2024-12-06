@@ -3,6 +3,9 @@ Snowflake Cortex Analyst Demo in &lt; 10 mins
 
 Setup this demo to see the power of Conversational Analytics against structured datasets.
 
+<img src="https://github.com/NickAkincilar/Cortex_Analyst_Demo/blob/main/Images/Cortex1.png?raw=true" alt="drawing" width="500"/>
+
+
 ### CONTOSO DEMO SETUP INSTRUCTIONS:
 
 1. Run Script Part-1 from the **/Files/Setup_Script.sql** to create the necessary objects
