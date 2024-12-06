@@ -31,10 +31,10 @@ Setup this demo to see the power of Conversational Analytics against structured 
 1. **SHOW ME TOP 15 PRODUCTS SOLD IN TX IN TERMS OF REVENUE**  
     - "TX" does not match the data in the table where the real value is TEXAS. Show the query where it is filtering on TEXAS
     - Because we didnt specified a time range, LLM will use the entire time time period for revenue
-    - Notice how results can be displayed as Table, Charts but also as a business summary & insights using CORTEX.COMPLETE via Mistral_Large2
+    - Notice how results can be displayed as Table, Charts but also as a business summary & insights using **[CORTEX.COMPLETE()](https://docs.snowflake.com/en/sql-reference/functions/complete-snowflake-cortex)** function via Mistral_Large2
     - It drives insights using product descriptions such as Brand or Product Type even if those are not actual data columns
 2. **WHAT ABOUT IN 2009?**
-    - Notice this is a follow up to first question where Analyst will apply the YEAR=2009 to previous question
+    - Notice this is a follow up to first question where Analyst will apply the YEAR=2009 to the previous question
 
 4. **HOW ABOUT IN FL?**
     - Another follow up where we are switching to Sales in Florida during 2009
@@ -47,7 +47,7 @@ Setup this demo to see the power of Conversational Analytics against structured 
 
 
 6. **How much did Rachel Gordon spent in different product categories in Florida during 2009?**   
-    - Notice the name format in the table is "**Gordon, Rachel**". Cortex_Search Hybrid search was able to identify the correct name.
+    - Notice the name format in the table is "**Gordon, Rachel**". **[CORTEX_SEARCH()](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)**  Hybrid(Vector+Text) service was able to identify the correct name.
     - Look at the SQL: **WHERE NAME = 'Gordon, Rachel'**. Query is NOT using LIKE + % to find a partial match but uses Vector search to locate the actual name
 
 
