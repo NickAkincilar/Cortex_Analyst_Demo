@@ -9,7 +9,7 @@ import time
 
 # ---> CONFIGURE THESE VALUES
 
-HOST = "SFSENORTHAMERICA-YourDemoAccount.snowflakecomputing.com"
+HOST = "YourDemoAccount.snowflakecomputing.com"
 Val_user = "YourUserID"
 Val_pw = "YourPW"
 
