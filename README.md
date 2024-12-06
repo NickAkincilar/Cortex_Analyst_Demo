@@ -40,15 +40,15 @@ Setup this demo to see the power of Conversational Analytics against structured 
 
 
 6. **How much did Rachel Gordon spent in different product categories in Florida during 2009?**   
-    - Comments: Notice the name format in the table is "Gordon, Rachel". Cortex_Search Hybrid search was able to identify the correct name.
+    - Notice the name format in the table is "**Gordon, Rachel**". Cortex_Search Hybrid search was able to identify the correct name.
     - Look at the SQL: **WHERE NAME = 'Gordon, Rachel'**. Query is NOT using LIKE + % to find a partial match but uses Vector search to locate the actual name
 
 
-7. **How much did Rachal Gordn spent in different product categories in Florida during 2009?**  
+7. **How much did Rachal Gordn spent in different product categories in Florida during 2009?**  (Notice the bad spelling for Rachel Gordon!)
 
-    - Notice we just butchered both the first & last names with misspellings
-    - Show SQL where NAME = 'Gordon, Rachel'. 
-    - Explain Cortex_Search allows users to make mistakes & not have to be precise with their search criteria & still get proper resulst
+    - We just butchered both the first & last names
+    - Notice the SQL WHERE NAME = 'Gordon, Rachel'. 
+    - Cortex_Search service allows users to make mistakes via Fuzzy Vector Search & not have to be precise with their search criteria & still get proper results
 
 8. **Open & View the Yaml file.** 
     - Explain Symantic Generator auto splits columns in ach table into Dimensions, Measures, Time_Dimensions
