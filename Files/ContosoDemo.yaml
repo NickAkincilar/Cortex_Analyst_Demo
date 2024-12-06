@@ -1,0 +1,702 @@
+name: ContosoModel
+tables:
+  - name: SALES
+    description: This table represents sales data, capturing details of each order,
+      including the products sold, customer information, and order dates.__
+    base_table:
+      database: CORTEX_DEMOS
+      schema: CONTOSO
+      table: SALES
+    primary_key:
+      columns:
+        - ORDERKEY
+    dimensions:
+      - name: ORDERKEY
+        synonyms:
+          - '  '
+        description: Unique identifier for each order line.
+        expr: ORDERKEY
+        data_type: TEXT
+        sample_values:
+          - 20080615717000-1
+          - 20080615717000-2
+          - 20080615717000-3
+          - 20080615717001-1
+          - 20080615717001-2
+      - name: ORDERNUMBER
+        synonyms:
+          - '  '
+        description: Unique identifier for each order.__
+        expr: ORDERNUMBER
+        data_type: TEXT
+        sample_values:
+          - '20080615717000'
+          - '20080615717001'
+          - '20080615717002'
+          - '20080615717003'
+          - '20080615717005'
+    time_dimensions:
+      - name: ORDERDATE
+        synonyms:
+          - '  '
+        description: Date of order placement.__
+        expr: ORDERDATE
+        data_type: TIMESTAMP_NTZ
+        sample_values:
+          - '2008-06-15 00:00:00'
+          - '2007-04-24 00:00:00'
+          - '2007-05-12 00:00:00'
+          - '2009-10-28 00:00:00'
+          - '2007-04-28 00:00:00'
+      - name: DELIVERYDATE
+        synonyms:
+          - '  '
+        description: Date and time of delivery.__
+        expr: DELIVERYDATE
+        data_type: TIMESTAMP_NTZ
+        sample_values:
+          - '2008-06-24 00:00:00'
+          - '2008-06-26 00:00:00'
+          - '2008-06-22 00:00:00'
+          - '2007-05-01 00:00:00'
+          - '2007-05-03 00:00:00'
+      - name: STOREKEY
+        synonyms:
+          - '  '
+        description: Unique identifier for each store.__
+        expr: STOREKEY
+        data_type: NUMBER
+        sample_values:
+          - '199'
+          - '307'
+          - '306'
+      - name: PRODUCTKEY
+        synonyms:
+          - '  '
+        description: Unique identifier for each product.__
+        expr: PRODUCTKEY
+        data_type: NUMBER
+        sample_values:
+          - '1670'
+          - '1664'
+          - '1786'
+          - '1782'
+          - '425'
+      - name: PROMOTIONKEY
+        synonyms:
+          - '  '
+        description: 'Promotion Key: Unique identifier for each promotion.__'
+        expr: PROMOTIONKEY
+        data_type: NUMBER
+        sample_values:
+          - '1'
+          - '26'
+          - '10'
+          - '8'
+          - '19'
+      - name: CURRENCYKEY
+        synonyms:
+          - '  '
+        description: Currency Key__
+        expr: CURRENCYKEY
+        data_type: NUMBER
+        sample_values:
+          - '1'
+      - name: CUSTOMERKEY
+        synonyms:
+          - '  '
+        description: Unique identifier for each customer.__
+        expr: CUSTOMERKEY
+        data_type: NUMBER
+        sample_values:
+          - '6001'
+          - '6002'
+          - '6003'
+          - '6004'
+          - '6006'
+      - name: ORDERDATEKEY
+        synonyms:
+          - '  '
+        description: Unique identifier for each order date.__
+        expr: ORDERDATEKEY
+        data_type: NUMBER
+        sample_values:
+          - '20080615'
+          - '20070424'
+          - '20070512'
+          - '20091028'
+          - '20070428'
+      - name: ORDERLINENUMBER
+        synonyms:
+          - '  '
+        description: Unique identifier for each order line item.__
+        expr: ORDERLINENUMBER
+        data_type: NUMBER
+        sample_values:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+    measures:
+      - name: QUANTITY
+        synonyms:
+          - '  '
+        description: Quantity of items sold.__
+        expr: QUANTITY
+        data_type: NUMBER
+        sample_values:
+          - '1'
+          - '2'
+          - '4'
+          - '3'
+      - name: UNITPRICE
+        synonyms:
+          - '  '
+        description: Unit Price of a Product sold where Sales Revenue = UNITPRICE * QUANTITY
+        expr: UNITPRICE
+        data_type: NUMBER
+        sample_values:
+          - '8.990'
+          - '43.000'
+          - '13.890'
+          - '16.500'
+          - '369.000'
+      - name: UNITDISCOUNT
+        synonyms:
+          - '  '
+        description: Percentage discount applied to each unit sold.__
+        expr: UNITDISCOUNT
+        data_type: NUMBER
+        sample_values:
+          - '0'
+          - '6'
+          - '1'
+          - '5'
+          - '4'
+      - name: UNITCOST
+        synonyms:
+          - '  '
+        description: Unit Cost of sold item
+        expr: UNITCOST
+        data_type: NUMBER
+        sample_values:
+          - '4.13'
+          - '21.92'
+          - '6.39'
+          - '116.75'
+          - '7.59'
+      - name: NETPRICE
+        synonyms:
+          - '  '
+        description: Unit Price of each item
+        expr: NETPRICE
+        data_type: NUMBER
+        sample_values:
+          - '8.990'
+          - '43.000'
+          - '13.890'
+          - '16.500'
+          - '369.000'
+  - name: PRODUCT
+    description: Product information table storing details about products, including
+      product key, code, name, manufacturer, brand, subcategory, category, and color.__
+    base_table:
+      database: CORTEX_DEMOS
+      schema: CONTOSO
+      table: PRODUCT
+    primary_key:
+      columns:
+        - PRODUCTKEY
+    dimensions:
+      - name: PRODUCTNAME
+        synonyms:
+          - '  '
+        description: Product Names__
+        expr: PRODUCTNAME
+        data_type: TEXT
+        sample_values:
+          - Contoso Rechargeable Battery E100 Black
+          - Contoso Dual USB Power Adapter - power adapter E300 Black
+          - Contoso Car power adapter M90 Black
+          - Contoso Mouse Lock Bundle E200 Black
+          - Contoso Power Inverter - DC to AC power inverter E900 Black
+        cortex_search_service_name: search_product_name
+      - name: MANUFACTURER
+        synonyms:
+          - '  '
+        description: Manufacturer of the product.__
+        expr: MANUFACTURER
+        data_type: TEXT
+        sample_values:
+          - Contoso, Ltd
+          - Wide World Importers
+          - Northwind Traders
+          - Adventure Works
+          - Southridge Video
+          - A. Datum Corporation
+          - Fabrikam, Inc.
+          - Tailspin Toys
+          - Litware, Inc.
+          - The Phone Company
+          - Proseware, Inc.
+      - name: BRAND
+        synonyms:
+          - '  '
+        description: List of brands associated with products.__
+        expr: BRAND
+        data_type: TEXT
+        sample_values:
+          - Contoso
+          - Wide World Importers
+          - Northwind Traders
+          - Adventure Works
+          - A. Datum
+      - name: SUBCATEGORY
+        synonyms:
+          - '  '
+        description: Product Subcategories__
+        expr: SUBCATEGORY
+        data_type: TEXT
+        sample_values:
+          - Computers Accessories
+          - MP4&MP3
+          - Home Theater System
+          - Digital SLR Cameras
+          - Cameras & Camcorders Accessories
+          - Home & Office Phones
+          - Movie DVD
+          - Cell phones Accessories
+          - Microwaves
+          - Coffee Machines
+          - Air Conditioners
+          - Projectors & Screens
+          - Recording Pen
+          - Bluetooth Headphones
+          - Laptops
+          - Camcorders
+          - Touch Screen Phones
+          - Lamps
+          - Fans
+          - Televisions
+          - Car Video
+          - Boxed Games
+          - Digital Cameras
+          - VCD & DVD
+          - Printers, Scanners & Fax
+          - Washers & Dryers
+          - Water Heaters
+          - Download Games
+          - Refrigerators
+          - Smart phones & PDAs
+          - Monitors
+          - Desktops
+      - name: CATEGORY
+        synonyms:
+          - '  '
+        description: Product categories.__
+        expr: CATEGORY
+        data_type: TEXT
+        sample_values:
+          - Computers
+          - Audio
+          - TV and Video
+          - Cameras and camcorders
+          - Cell phones
+          - Music, Movies and Audio Books
+          - Home Appliances
+          - Games and Toys
+      - name: COLOR
+        synonyms:
+          - '  '
+        description: Color Options__
+        expr: COLOR
+        data_type: TEXT
+        sample_values:
+          - Black
+          - Blue
+          - White
+          - Grey
+          - Gold
+      - name: PRODUCTKEY
+        synonyms:
+          - '  '
+        description: Product Key__
+        expr: PRODUCTKEY
+        data_type: NUMBER
+        sample_values:
+          - '743'
+          - '744'
+          - '745'
+          - '746'
+          - '747'
+      - name: PRODUCTCODE
+        synonyms:
+          - '  '
+        description: Product Code__
+        expr: PRODUCTCODE
+        data_type: NUMBER
+        sample_values:
+          - '308001'
+          - '308002'
+          - '308003'
+          - '308004'
+          - '308005'
+  - name: CUSTOMER
+    description: Customer information, including demographics, contact details, and
+      other relevant data.__
+    base_table:
+      database: CORTEX_DEMOS
+      schema: CONTOSO
+      table: CUSTOMER
+    primary_key:
+      columns:
+        - CUSTOMERKEY
+    dimensions:
+      - name: CUSTOMERKEY
+        synonyms:
+          - '  '
+        description: Unique Customer Identifier__
+        expr: CUSTOMERKEY
+        data_type: NUMBER
+        sample_values:
+          - '25'
+          - '37'
+          - '42'
+          - '44'
+          - '929'
+      - name: CUSTOMERCODE
+        synonyms:
+          - '  '
+        description: Unique identifier for each customer.__
+        expr: CUSTOMERCODE
+        data_type: TEXT
+        sample_values:
+          - '11024'
+          - '11036'
+          - '11041'
+          - '11043'
+          - '11928'
+      - name: TITLE
+        synonyms:
+          - '  '
+        description: Title of the customer.__
+        expr: TITLE
+        data_type: TEXT
+        sample_values:
+          - None
+          - Mr.
+          - Ms.
+          - Mrs.
+          - Sr.
+      - name: NAME
+        synonyms:
+          - '  '
+        description: Name of Customer
+        expr: NAME
+        data_type: TEXT
+        sample_values:
+          - Xie, Russell
+          - Russell, Jennifer
+          - Carter, Amanda
+          - Simmons, Nathan
+          - Hernandez, Amber
+        cortex_search_service_name: search_customer_name
+      - name: MARITALSTATUS
+        synonyms:
+          - '  '
+        description: Marital Status of the Customer__
+        expr: MARITALSTATUS
+        data_type: TEXT
+        sample_values:
+          - M
+          - S
+          - None
+      - name: GENDER
+        synonyms:
+          - '  '
+        description: Gender of the customer.__
+        expr: GENDER
+        data_type: TEXT
+        sample_values:
+          - M
+          - F
+          - None
+      - name: EDUCATION
+        synonyms:
+          - '  '
+        description: Level of Education__
+        expr: EDUCATION
+        data_type: TEXT
+        sample_values:
+          - Partial College
+          - High School
+          - Partial High School
+          - Bachelors
+          - Graduate Degree
+      - name: OCCUPATION
+        synonyms:
+          - '  '
+        description: Occupation of the customer.__
+        expr: OCCUPATION
+        data_type: TEXT
+        sample_values:
+          - Skilled Manual
+          - Professional
+          - Management
+          - Clerical
+          - Manual
+      - name: CONTINENT
+        synonyms:
+          - '  '
+        description: Geographic region where the customer is located.__
+        expr: CONTINENT
+        data_type: TEXT
+        sample_values:
+          - North America
+          - Asia
+          - Europe
+      - name: CITY
+        synonyms:
+          - '  '
+        description: City where the customer is located.__
+        expr: CITY
+        data_type: TEXT
+        sample_values:
+          - Concord
+          - National City
+          - Glendale
+          - El Cajon
+          - Daly City
+      - name: STATE
+        synonyms:
+          - '  '
+        description: Geographic region of the customer.__
+        expr: STATE
+        data_type: TEXT
+        sample_values:
+          - Ahal Province
+          - Alabama
+          - Alaska
+          - Alberta
+          - Alpes-Maritimes
+          - Arizona
+          - Armenia
+          - Baden-Wuerttemberg
+          - Bavaria
+          - Beijing
+          - Berlin
+          - Bern
+          - British Columbia
+          - California
+          - Central Greece and Evvoia
+          - Chubu
+          - Chuy Province
+          - Colorado
+          - Connecticut
+          - Damascus
+          - England
+          - Essonne
+          - Florida
+          - Garonne (Haute)
+          - Georgia
+          - GuangDong
+          - Hamburg
+          - Hauts de Seine
+          - Hesse
+          - Hokkaido
+          - Hong Kong
+          - Illinois
+          - Islamabad Capital Territory
+          - Kansai
+          - Kanto
+          - Kentucky
+          - Krung Thep
+          - Leinster
+          - Lisboa Region
+          - Loiret
+          - Lombardia
+          - Lower Saxony
+          - Madrid
+          - Maharashtra
+          - Maine
+          - Maryland
+          - Massachusetts
+          - Minnesota
+          - Mississippi
+          - Missouri
+          - Molonglo
+          - Montana
+          - Moselle
+          - Moskovskaya oblast
+          - National Capital Territory of Delhi
+          - New Jersey
+          - New South Wales
+          - New York
+          - Noord-Holland
+          - Nord
+          - North Carolina
+          - North Rhine-Westphalia
+          - Northwestern
+          - Ohio
+          - Ontario
+          - Oregon
+          - Pas de Calais
+          - Queensland
+          - Saar
+          - Saxony
+          - Schleswig-Holstein
+          - Scotland
+          - Seine (Paris)
+          - Seine Saint Denis
+          - Seine et Marne
+          - Seoul-jikhalsi
+          - Shanghai
+          - Singapore
+          - Somme
+          - South Australia
+          - South Carolina
+          - Taiwan
+          - Tasmania
+          - Tehran
+          - Texas
+          - Thimphu District
+          - Tohoku
+          - Utah
+          - Val d'Oise
+          - Val de Marne
+          - Victoria
+          - Virginia
+          - Warszawa
+          - Washington
+          - West Bengal
+          - Wisconsin
+          - Wyoming
+          - Xinjiang
+          - Yeongnam
+          - Yveline
+      - name: COUNTRYREGION
+        synonyms:
+          - '  '
+        description: Geographic region where the customer is located.__
+        expr: COUNTRYREGION
+        data_type: TEXT
+        sample_values:
+          - United States
+          - Australia
+          - France
+          - Germany
+          - Canada
+          - United Kingdom
+          - the Netherlands
+          - Switzerland
+          - Ireland
+          - Portugal
+          - Spain
+          - Russia
+          - Poland
+          - Thailand
+          - China
+          - Kyrgyzstan
+          - South Korea
+          - Pakistan
+          - Singapore
+          - Armenia
+          - Italy
+          - Turkmenistan
+          - India
+          - Iran
+          - Greece
+          - Syria
+          - Japan
+          - Taiwan
+          - Bhutan
+      - name: ADDRESS1
+        synonyms:
+          - '  '
+        description: Primary residential address of customers.__
+        expr: ADDRESS1
+        data_type: TEXT
+        sample_values:
+          - 8734 Oxford Place
+          - 3981 Augustine Drive
+          - 5826 Escobar
+          - 1170 Shaw Rd
+          - 5985 Bouncing Road
+      - name: ADDRESS2
+        synonyms:
+          - '  '
+        description: Alternate mailing address or secondary address.__
+        expr: ADDRESS2
+        data_type: TEXT
+        sample_values:
+          - None
+          - '# 701'
+          - '# 101'
+          - '# 4'
+          - '# 133'
+      - name: PHONE
+        synonyms:
+          - '  '
+        description: Primary contact phone numbers for customers.__
+        expr: PHONE
+        data_type: TEXT
+        sample_values:
+          - 746-555-0186
+          - 115-555-0183
+          - 295-555-0145
+          - 296-555-0181
+          - 693-555-0146
+      - name: CUSTOMERTYPE
+        synonyms:
+          - '  '
+        description: Customer Type__
+        expr: CUSTOMERTYPE
+        data_type: TEXT
+        sample_values:
+          - Person
+          - Company
+    time_dimensions:
+      - name: BIRTHDATE
+        synonyms:
+          - '  '
+        description: Date of birth for each customer.__
+        expr: BIRTHDATE
+        data_type: TIMESTAMP_NTZ
+        sample_values:
+          - '1978-09-17 00:00:00'
+          - '1978-12-18 00:00:00'
+          - '1976-02-24 00:00:00'
+          - '1977-09-21 00:00:00'
+          - '1978-09-07 00:00:00'
+relationships:
+  - name: Sales_Customer
+    left_table: SALES
+    right_table: CUSTOMER
+    join_type: inner
+    relationship_type: one_to_one
+    relationship_columns:
+      - left_column: CUSTOMERKEY
+        right_column: CUSTOMERKEY
+  - name: Sales_product
+    left_table: SALES
+    right_table: PRODUCT
+    join_type: inner
+    relationship_type: one_to_one
+    relationship_columns:
+      - left_column: PRODUCTKEY
+        right_column: PRODUCTKEY
+verified_queries:
+  - name: How many laptops were sold in the year 2008 with 'work' in the product name
+      over the entire available time period?
+    question: How many laptops were sold in the year 2008 with 'work' in the product
+      name over the entire available time period?
+    sql: "WITH filtered_sales AS (\n  SELECT\n    s.orderkey,\n    s.quantity\n  FROM\
+      \ __sales AS s\n  INNER JOIN __product AS p\n    ON s.productkey = p.productkey\n\
+      \  WHERE\n    p.subcategory = 'Laptops'\n    AND p.productname ILIKE '%work%'\n\
+      \    AND DATE_PART('year', s.orderdate) = 2008\n)\nSELECT\n  COUNT(DISTINCT\
+      \ fs.orderkey) AS total_laptops_sold,\n  MIN(s.orderdate) AS start_date,\n \
+      \ MAX(s.orderdate) AS end_date\nFROM filtered_sales AS fs\nINNER JOIN __sales\
+      \ AS s\n  ON fs.orderkey = s.orderkey"
+    verified_at: '1732552481'
+    verified_by: JOHN
