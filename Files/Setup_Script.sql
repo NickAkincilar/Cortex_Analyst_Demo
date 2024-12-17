@@ -6,11 +6,11 @@
 
 -- 3. Run Part-2 of the script to ingest the data & create search service for Fuzzy searching Customer & Product Names
 
--- 4. Install Streamlit OSS on local laptop (Skip if you already have OSS Streamlit installed)
+-- 4. Open the **"cortex_contoso_demo_sis.py"** file with a text editor & Copy all of the code.
+   
+-- 5. Create a new StreamLit app in Snowsight & Paste the code from **"cortex_contoso_demo_sis.py"** file replacing all the existing code,
 
--- 5. Copy the "cortex_contoso_demo.py" file to a local folder & Modify the 3 params in the CONFIGURE THESE VALUES section. (Account, userid & pw)
-
--- 6. On the command line run following to start the demo: "streamlit run cortex_contoso_demo.py"
+-- 6. Run the Streamlit App in Snowsight
 
 
 
