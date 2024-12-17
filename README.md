@@ -16,9 +16,11 @@ Setup this demo to see the power of Conversational Analytics against structured 
 
 4. Install Streamlit OSS on the local laptop (Skip this if you already have OSS Streamlit installed)
 
-5. Copy the **"cortex_contoso_demo.py"** file to a local folder & Modify the 3 params in the CONFIGURE THESE VALUES section. (Account, userid & pw)
+5. Open the **"cortex_contoso_demo_sis.py"** file with a text editor & Copy all of the code.
+   
+6. Create a new StreamLit app in Snowsight & Paste the code from **"cortex_contoso_demo_sis.py"** file replacing all the existing code,
 
-6. On the command line run the following to start the demo: **streamlit run cortex_contoso_demo.py**
+7. Run the Streamlit App
 
 
 <BR/><BR/><BR/>
