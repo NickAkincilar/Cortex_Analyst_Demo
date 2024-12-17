@@ -14,13 +14,11 @@ Setup this demo to see the power of Conversational Analytics against structured 
 
 3. Run Script Part-2 from the **/Files/Setup_Script.sql** to ingest the data & create search service for Fuzzy searching Customer & Product Names
 
-4. Install Streamlit OSS on the local laptop (Skip this if you already have OSS Streamlit installed)
-
-5. Open the **"cortex_contoso_demo_sis.py"** file with a text editor & Copy all of the code.
+4. Open the **"cortex_contoso_demo_sis.py"** file with a text editor & Copy all of the code.
    
-6. Create a new StreamLit app in Snowsight & Paste the code from **"cortex_contoso_demo_sis.py"** file replacing all the existing code,
+5. Create a new StreamLit app in Snowsight & Paste the code from **"cortex_contoso_demo_sis.py"** file replacing all the existing code,
 
-7. Run the Streamlit App
+6. Run the Streamlit App in Snowsight
 
 
 <BR/><BR/><BR/>
