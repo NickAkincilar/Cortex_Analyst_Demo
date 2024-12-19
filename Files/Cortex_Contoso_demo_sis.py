@@ -19,7 +19,7 @@ from snowflake.snowpark.exceptions import SnowparkSQLException
 # List of available semantic model paths in the format: <DATABASE>.<SCHEMA>.<STAGE>/<FILE-NAME>
 # Each path points to a YAML file defining a semantic model
 AVAILABLE_SEMANTIC_MODELS_PATHS = [
-    "CORTEX_DEMOS.CONTOSO.ANALYST_STAGE/ContosoDemo.yaml"
+    "TEMP.N_AKINCILAR.STREAMLIT_STAGE/B2BTech.yaml"
 ]
 API_ENDPOINT = "/api/v2/cortex/analyst/message"
 API_TIMEOUT = 50000  # in milliseconds
@@ -261,14 +261,15 @@ def display_sql_query(sql: str, message_index: int):
             if df.empty:
                 st.write("Query returned no data")
                 return
-            sql_new = f'''SELECT SNOWFLAKE.CORTEX.COMPLETE('mistral-large2','summarize & itemize top insights from the following json data in less than 150 words. Data: '  ||
+            sql_new = f'''SELECT SNOWFLAKE.CORTEX.COMPLETE('mistral-large2','Summarize results, Show trends & Itemize top insights & trends from the following json data in less than 150 words. Data: '  ||
                                         (
                                             SELECT array_agg( object_construct(*))::string as Output from
                                                     ( {sql.replace(";", "")}  )
                                         )
                                         ) as Insights'''
-            DataSummary = get_query_exec_result(sql_new)
-            st.markdown(str(DataSummary[0].iat[0, 0]))
+            if len(df) <= 20:
+                DataSummary = get_query_exec_result(sql_new)
+                st.markdown(str(DataSummary[0].iat[0, 0]))
             
             # Show query results in two tabs
             data_tab, chart_tab = st.tabs(["Data 📄", "Chart 📈 "])
