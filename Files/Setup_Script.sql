@@ -71,8 +71,8 @@ use database cortex_demos;
 create schema cortex_demos.contoso;
 use schema cortex_demos.contoso;
 
-
-ALTER ACCOUNT SET ENABLE_CORTEX_ANALYST_MODEL_AZURE_OPENAI = TRUE;
+-- This is an option but the new internal LLMs are just as fast & accurate
+--ALTER ACCOUNT SET ENABLE_CORTEX_ANALYST_MODEL_AZURE_OPENAI = TRUE;
 
 create WAREHOUSE DEMO_WH 
 WAREHOUSE_SIZE = 'X-Small'
