@@ -18,9 +18,11 @@ from snowflake.snowpark.exceptions import SnowparkSQLException
 
 # List of available semantic model paths in the format: <DATABASE>.<SCHEMA>.<STAGE>/<FILE-NAME>
 # Each path points to a YAML file defining a semantic model
+
 AVAILABLE_SEMANTIC_MODELS_PATHS = [
-    "TEMP.N_AKINCILAR.STREAMLIT_STAGE/B2BTech.yaml"
+    "CORTEX_DEMOS.CONTOSO.ANALYST_STAGE/ContosoDemo.yaml"
 ]
+
 API_ENDPOINT = "/api/v2/cortex/analyst/message"
 API_TIMEOUT = 50000  # in milliseconds
 
