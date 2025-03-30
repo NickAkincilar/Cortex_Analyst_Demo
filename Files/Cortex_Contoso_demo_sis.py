@@ -269,9 +269,14 @@ def display_sql_query(sql: str, message_index: int):
                                                     ( {sql.replace(";", "")}  )
                                         )
                                         ) as Insights'''
+            
+           # <---Remove this block to disable the additional Summarization feature OR use a better model than mistral-large2 to get more accurate results
+            
             if len(df) <= 20:
                 DataSummary = get_query_exec_result(sql_new)
                 st.markdown(str(DataSummary[0].iat[0, 0]))
+                
+            # <---
             
             # Show query results in two tabs
             data_tab, chart_tab = st.tabs(["Data 📄", "Chart 📈 "])
