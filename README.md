@@ -4,7 +4,8 @@ Snowflake Cortex Analyst Demo in &lt; 10 mins
 Setup this demo to see the power of Conversational Analytics against structured datasets.
 
 #### Notice: This demo has an additional step of summarizing the resultset via LLM calls to show art of the possible. 
-#### It is using a smaller model that can halucinate. Summarization "is not part of Cortex Analyst" functionality & can be disabled!
+#### It is using a smaller model that can halucinate. Summarization IS NOT PART OF CORTEX ANALYST functionality & can be disabled!
+
 
 <img src="https://github.com/NickAkincilar/Cortex_Analyst_Demo/blob/main/Images/Cortex1.png?raw=true" alt="drawing" width="500"/>
 
